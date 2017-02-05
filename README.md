@@ -10,6 +10,7 @@ A full stack app for book sharing.
 ## Tech Stack
 * React
 * Redux
+* React Router
 * Flexbox
 * React Css Modules
 * Helmet 
