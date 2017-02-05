@@ -20,3 +20,4 @@ A full stack app for book sharing.
 * Mongoose/MongoDB
 * Webpack
 * now as paas
+* Travis CI
