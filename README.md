@@ -20,5 +20,4 @@ A full stack app for book sharing.
 * Mongoose/MongoDB -done
 * Webpack - pick any boilerplate
 * now as paas -done
-* Travis CI - not done
 * Use React-redux-router
