@@ -8,16 +8,16 @@ A full stack app for book sharing.
 * I can propose a trade and wait for the other user to accept the trade.
 
 ## Tech Stack
-* React
-* Redux
-* React Router
-* Flexbox
-* React Css Modules
-* Helmet 
+* React - done
+* Redux - done
+* React Router - done
+* Flexbox - done
+* React Css Modules - ots
+* Helmet -ots
 * Material Design React UI Framework
-* Nodejs 
-* Express
-* Mongoose/MongoDB
-* Webpack
-* now as paas
-* Travis CI
+* Nodejs -done
+* Express - done
+* Mongoose/MongoDB -done
+* Webpack - pick any boilerplate
+* now as paas -done
+* Travis CI - not done
