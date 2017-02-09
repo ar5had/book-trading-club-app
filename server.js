@@ -13,9 +13,6 @@ if (process.env.NODE_ENV !== "production")
 
 require('./app/config/passport')(passport);
 
-mongoose.connect(process.env.MONGO_URI);
-mongoose.Promise = global.Promise;
-
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(session({
@@ -26,6 +23,32 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+const options = {
+  server: {
+    socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 }
+  },
+  replset: {
+    socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 }
+  }
+};
+
+mongoose.connect(process.env.MONGO_URI, options, err => {
+  if(err) {
+    console.log(`Some error happened while connecting to db - ${err}`);
+  } else {
+    console.log(`db connected successfully!`);
+  }
+});
+
+mongoose.Promise = global.Promise;
+const conn = mongoose.connection;
+
+conn.on('error', console.error.bind(console, 'connection error:'));
+
+conn.once('open', () => {
+  // Routes
+});
 
 const port = process.env.PORT || 8080;
 app.listen(port, function () {
