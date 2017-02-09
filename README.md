@@ -21,3 +21,4 @@ A full stack app for book sharing.
 * Webpack - pick any boilerplate
 * now as paas -done
 * Use React-redux-router
+* yarn - done
