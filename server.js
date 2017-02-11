@@ -4,11 +4,27 @@ const passport = require('passport');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const compression = require('compression');
+const logger = require('morgan');
 
 const app = express();
 
+app.use(logger('dev'));
+
 if (process.env.NODE_ENV !== "production") {
   require('dotenv').load();
+  const webpackMiddleware = require("webpack-dev-middleware");
+  const webpack = require('webpack');
+
+  const config = require('./webpack/webpack.config');
+
+  app.use(webpackMiddleware(webpack(config), {
+    // overriding public path for index.ejs
+    publicPath: "/dist",
+    headers: { "X-Custom-Webpack-Header": "yes" },
+    stats: {
+      color: true
+    }
+  }));
 }
 
 require('./config/passport')(passport);
